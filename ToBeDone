@@ -5,3 +5,12 @@ Jamie 1 Insert?
 Jamie 2 Interface for import/export
 Jamie 3 User change interaction
 Formatting tables in database
+
+CREATING PDF from MYSQL
+mysql -u USERNAME -p -e "SELECT * FROM questions_answers;" questions_answers > questions_answers.md
+pandoc -S --toc questions_answers.md -o questions_answers.pdf
+
+
+INSTALLING PANDOC
+wget https://github.com/jgm/pandoc/releases/download/1.15.1/pandoc-1.15.1-1-amd64.deb
+sudo dpkg -i pandoc-1.15.1-1-amd64.deb
