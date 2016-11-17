@@ -40,5 +40,16 @@ echo $question5_ans >> ./$FILENAME.list
 
 paste -d, -s ./$FILENAME.list > ./$FILENAME.csv
 
-mysql -u blackngreen -p questions_answers < SQL_script.sql
-mysqldump -u blackngreen -p questions_answers > questions_answers.sql
+echo "Do you wish to import? y/n"
+read UNO
+if [[ "$UNO" == "y" ]]; then mysql -u blackngreen -p questions_answers < SQL_script.sql
+echo "Data was imported."
+elif [[ "$UNO" == "n" ]]; then echo "Data will not be imported."
+fi
+echo "Do you wish to export? y/n"
+read DOS
+if [[ "$DOS" == "y" ]]; then mysqldump -u blackngreen -p questions_answers > questions_answers.sql
+echo "Data was exported."
+elif [[ "$DOS" == "n" ]]; then echo "Data will not be exported."
+
+fi
