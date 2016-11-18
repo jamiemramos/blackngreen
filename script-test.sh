@@ -1,8 +1,11 @@
 #!/bin/bash
-
+echo "What was your username?"
+read USERNAME
+echo "What was your password?"
+read PASSWORD
 if [ -e questions_answers.sql ];
 then
-mysql -u blackngreen -p questions_answers < questions_answers.sql
+mysql -u $USERNAME -p questions_answers < questions_answers.sql
 fi
 
 # add timestamp to desired file
@@ -42,13 +45,13 @@ paste -d, -s ./$FILENAME.list > ./$FILENAME.csv
 
 echo "Do you wish to import? y/n"
 read UNO
-if [[ "$UNO" == "y" ]]; then mysql -u blackngreen -p questions_answers < SQL_script.sql
+if [[ "$UNO" == "y" ]]; then mysql -u $USERNAME -p questions_answers < SQL_script.sql
 echo "Data was imported."
 elif [[ "$UNO" == "n" ]]; then echo "Data will not be imported."
 fi
 echo "Do you wish to export? y/n"
 read DOS
-if [[ "$DOS" == "y" ]]; then mysqldump -u blackngreen -p questions_answers > questions_answers.sql
+if [[ "$DOS" == "y" ]]; then mysqldump -u $USERNAME -p questions_answers > questions_answers.sql
 echo "Data was exported."
 elif [[ "$DOS" == "n" ]]; then echo "Data will not be exported."
 
