@@ -2,10 +2,12 @@
 
 Directions for Running the script:
 
-1) Start mysql by typing in "mysql-ctl cli"
-2) Then once in mysql type "USE questions_answers" then enter
-3) Following this command, type "SELECT * FROM questions_answers" and enter
-4) Type quit, enter and you should be back in the workspace you were using beforehand
-5) Run the script by typing "./script-test.sh"
-6) enter the password: "assign5"
-7) answer each question
+1) Initialize the database by running the database_create script.
+    Use this command to do so:
+    mysql -u USERNAME -p < database_create.sql
+
+2) Run the script by typing "./script-test.sh"
+
+3) enter the password: "assign5"
+
+4) answer each question

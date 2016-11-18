@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mysql-ctl start
+
 if [ -e questions_answers.sql ];
 then
 mysql -u blackngreen -p questions_answers < questions_answers.sql
